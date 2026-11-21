@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: premxcav1-2
-    runtime: static
-    branch: main
-    buildCommand: git submodule update --init --recursive
-    staticPublishPath: ./oaxaca-travel-web
