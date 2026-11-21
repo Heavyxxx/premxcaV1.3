@@ -593,8 +593,12 @@ def export_leads():
     )
 
 
+import os
+
 if __name__ == "__main__":
-    print("PREMXCA CRM corriendo en http://127.0.0.1:5000")
-    print("Web pública: http://127.0.0.1:5000/")
-    print("Panel CRM:   http://127.0.0.1:5000/crm")
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    debug = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
+    print(f"PREMXCA CRM corriendo en http://0.0.0.0:{port}")
+    print(f"Web pública: http://0.0.0.0:{port}/")
+    print(f"Panel CRM:   http://0.0.0.0:{port}/crm")
+    app.run(host="0.0.0.0", port=port, debug=debug)
