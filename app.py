@@ -593,9 +593,8 @@ def export_leads():
     )
 
 
-import os
-
 if __name__ == "__main__":
+    migrate_legacy_mongodb_records()
     port = int(os.environ.get("PORT", 5000))
     debug = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
     print(f"PREMXCA CRM corriendo en http://0.0.0.0:{port}")
